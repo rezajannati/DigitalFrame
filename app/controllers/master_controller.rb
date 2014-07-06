@@ -24,6 +24,18 @@ class MasterController < ApplicationController
   end
 
   def slideshows
+    @pictures = current_user.pictures.all
+    @slideshow = current_user.slideshows.new  
+  end
+
+  def slideshowcreate
+      if current_user.slideshows.create(slideshow_params)
+        flash[:notice] = "new slideshow successfully created"
+
+        redirect_to '/master'
+      else
+        render :text => "something went wrong :("
+      end
   end
 
   def layouts
@@ -33,8 +45,10 @@ class MasterController < ApplicationController
   end
   
   private 
+  def slideshow_params
+    params.require(:picture).permit(:name, {:picture_ids => []})
+  end
 
-  
   def picture_params
     params.require(:picture).permit(:user_id, :avatar)
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603195725) do
+ActiveRecord::Schema.define(version: 20140706201748) do
 
   create_table "pictures", force: true do |t|
     t.string   "name"
@@ -23,6 +23,25 @@ ActiveRecord::Schema.define(version: 20140603195725) do
   end
 
   add_index "pictures", ["user_id"], name: "index_pictures_on_user_id"
+
+  create_table "slideshowpictures", force: true do |t|
+    t.integer  "picture_id"
+    t.integer  "slideshow_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "slideshowpictures", ["picture_id"], name: "index_slideshowpictures_on_picture_id"
+  add_index "slideshowpictures", ["slideshow_id"], name: "index_slideshowpictures_on_slideshow_id"
+
+  create_table "slideshows", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "slideshows", ["user_id"], name: "index_slideshows_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

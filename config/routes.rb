@@ -5,6 +5,7 @@ SimpleLogin::Application.routes.draw do
   get "/pictures" => "master#pictures"
   post "/pictures" => "master#create"
   get "/slideshows" => "master#slideshows"
+  post "/slideshows" => "master#slideshowcreate"
   get "/layouts" => "master#layouts"
   get "/settings" => "master#settings"
   resources :users

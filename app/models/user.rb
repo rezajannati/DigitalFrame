@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :pictures, :dependent => :destroy
+  has_many :slideshows
   #this allows my form to contain a password field and use it on the model side, even though there is no field
   #in my database called password (we used encrypted_password)
   attr_accessor :password, :password_confirmation
