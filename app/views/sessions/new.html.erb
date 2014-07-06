@@ -1,0 +1,34 @@
+<head>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+	<div class ='container'> 
+		<div class= 'row'>
+			<div class= 'col-xs-12'>
+				<br>
+				<% if flash[:error] %>
+					<p class='red'><%= flash[:error] %></p>
+				<% end %>
+				<br>
+				<div class = 'col-xs-12'>
+					<div class='container'>
+					<%= simple_form_for(:session, :url => sessions_path, html: { :class => 'form-horizontal'}, :defaults => { :input_html => { :class => "form-control" } }) do |f| %>
+						<div class='form-group'>
+							<%= f.input :email , required:false, :class => "form-control input-lg"%>
+						</div>
+						<div class='form-group'>
+							<%= f.input :password , required:false, :class => "form-control" %>
+						</div>
+						<div class='form-group'>
+							<%= f.button :submit , :Login, :class => 'btn btn-primary btn-lg btn-block'%>
+						</div>
+					<% end %>
+					</div>
+				</div>
+				<p>Not yet a registered user? 
+				<a class= 'btn btn-success btn-lg btn-block'href="/signup">Register</a></p>
+			</div>
+		</div>
+	</div>
+</body>

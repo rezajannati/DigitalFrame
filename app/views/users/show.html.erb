@@ -1,0 +1,39 @@
+<head>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script>
+		$(function(){
+			$( document ).tooltip();
+		});
+	</script>
+	<style>
+		label{
+			display:inline-block;
+			width: 5em;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class = 'container'>
+		<div class= 'topbar'>
+		<h4>
+			<i id = "banner"></i> Welcome, <%= @user.first_name.capitalize%>
+		</h4>
+	</div>
+		<div class = 'row'>
+			<div class='col-xs-12'>
+				<h3>Choose Device Mode</h3>
+				<br>
+				<a class='btn btn-primary btn-lg btn-block fa fa-mobile fa-2x' href="/master"> Photo Manager</a>
+				<br><br>
+				<a class='btn btn-primary btn-lg btn-block fa fa-tablet fa-2x' href=""> Photo Frame</a>
+				<br><br>
+				<a class='btn btn-danger btn-lg btn-block pull-right fa fa-power-off' href="/signout"> Log out</a>
+			</div>
+		</div>
+	</div>
+</body>

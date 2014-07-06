@@ -1,0 +1,46 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script>
+		$(function(){
+			$( document ).tooltip();
+		});
+	</script>
+	<style>
+		label{
+			display:inline-block;
+			width: 5em;
+		}
+	</style>
+</head>
+<body>
+
+	<div class='container'>
+		<div class='row'>
+			<div class='col-xs-12 col-md-6'><br>
+				<a class='btn btn-primary btn-block btn-lg fa fa-picture-o fa-3x' href="/pictures"> Photos</a>
+			</div>
+			<div class='col-xs-12 col-md-6'><br>
+				<a class='btn btn-primary btn-block btn-lg fa fa-play-circle-o fa-3x' href="/slideshows"> Slideshows</a>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-xs-12 col-md-6'><br>
+				<a class='btn btn-primary btn-block btn-lg fa fa-th-large fa-3x' href="/layouts"> Collages</a>
+			</div>
+			<div class='col-xs-12 col-md-6'><br>
+				<a class='btn btn-primary btn-block btn-lg fa fa-cog fa-3x' href="/settings"> Settings</a>
+			</div>
+		</div>
+		<div class='row'> 
+			<div class= 'col-xs-12 col-md-12'><br>
+				<a class='btn btn-primary btn-block btn-lg fa fa-sort fa-3x' href="/users/<%= @user.id%>"> Mode</a>
+			</div>
+		</div>
+
+	</div>
+</body>

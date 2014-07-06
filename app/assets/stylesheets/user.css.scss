@@ -1,0 +1,18 @@
+// Place all the styles related to the User controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap';
+
+.topbar{
+	display: block;
+	color: #0066FF;
+	padding: 5px;
+	text-align: right;
+}
+
+.red{
+	color:red;
+}
+.logo{
+	margin: 0px auto; 
+}
