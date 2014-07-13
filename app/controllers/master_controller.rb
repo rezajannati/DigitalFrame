@@ -23,6 +23,7 @@ class MasterController < ApplicationController
     end
   end
 
+  #this can go pretty soon
   def slideshows
     @pictures = current_user.pictures.all
     @slideshow = current_user.slideshows.new  
@@ -37,6 +38,7 @@ class MasterController < ApplicationController
         render :text => "something went wrong :("
       end
   end
+  #  end
 
   def layouts
   end

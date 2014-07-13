@@ -1,0 +1,22 @@
+<div class ='topbar'><h1>Make a new slideshow!</h1></div>
+	<div class ='container'>
+		<div class ='row'>
+				<div class = 'col-xs-12'>
+					<%= form_tag(user_slideshows_path current_user, method: "post") do %>
+						<br>
+						<%= label_tag "picture[name]", "name" %>
+						<%= text_field_tag 'picture[name]' %><br>
+						<%= collection_check_boxes(:picture, :picture_ids, @pictures, :id, :avatar)  do |b| %>
+							<label for="<%= b.object %>" >
+								<img src="<%= b.text %>" width='150px'>
+								<%= b.check_box %>
+							</label>
+						<% end %>
+						<%= submit_tag "Make Slideshow", :class => 'btn btn-primary btn-lg btn-block' %><br>
+					<% end %>
+				
+				</div>
+		</div>
+		<a class='btn btn-warning btn-lg btn-block' href="/master">Back</a>
+	</div>
+

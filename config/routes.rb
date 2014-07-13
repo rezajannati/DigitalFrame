@@ -8,7 +8,11 @@ SimpleLogin::Application.routes.draw do
   post "/slideshows" => "master#slideshowcreate"
   get "/layouts" => "master#layouts"
   get "/settings" => "master#settings"
-  resources :users
+
+  resources :users do 
+    resources :slideshows
+    
+  end
   resources :sessions, :only => [:new, :create, :destroy] #only need 3 restful routes for Sessions
   get "/signup"  => 'users#new'
   get "/signin" => 'sessions#new'
