@@ -4,6 +4,7 @@
 
 <% @slideshows.each do |s| %>
 	<h2><%= s.name %> </h2>
+	<a href="<%=edit_user_slideshow_path current_user, s.id %>">edit this slideshow</a>
 	<% s.pictures.each do |p| %>
 		<img src="<%= p.avatar %>" class='img-rounded' width='80px'>
 	<% end %>
@@ -12,5 +13,5 @@
 <h3>Add a new slideshow</h3>
 <a href="<%= new_user_slideshow_path current_user %>">GO!</a>
 <h3>See all your pictures</h3>
-<a href="/pictures">GOO!</a>
+<a href="<%= user_pictures_path current_user %>">GOO!</a>
 

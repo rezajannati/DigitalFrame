@@ -25,6 +25,7 @@ class SlideshowsController < ApplicationController
   end
 
   def edit
+    @slideshow = Slideshow.find(params[:id])
   end
 
   def show
@@ -35,5 +36,5 @@ class SlideshowsController < ApplicationController
   def slideshow_params
     params.require(:picture).permit(:name, {:picture_ids => []})
   end
-  
+
 end

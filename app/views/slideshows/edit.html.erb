@@ -1,2 +1,23 @@
-<h1>Slideshows#edit</h1>
-<p>Find me in app/views/slideshows/edit.html.erb</p>
+<h1>EDIT THIS SLIDESHOW!</h1>
+<div class ='container'>
+	<div class ='row'>
+			<div class = 'col-xs-12'>
+				<%= form_for(user_slideshows_path current_user, @slideshow, method: "patch") do |f| %>
+					<br>
+					<%= label_tag "picture[name]", "name" %>
+					<%= text_field_tag 'picture[name]' %><br>
+					<%= collection_check_boxes(:picture, :picture_ids, @slideshow.pictures, :id, :avatar)  do |b| %>
+						<label for="<%= b.object %>" >
+							<img src="<%= b.text %>" width='150px'>
+							<%= b.check_box %>
+						</label>
+					<% end %>
+					<%= submit_tag "Make Slideshow", :class => 'btn btn-primary btn-lg btn-block' %><br>
+				<% end %>
+			
+			</div>
+	</div>
+	<a class='btn btn-warning btn-lg btn-block' href="/master">Back</a>
+</div>
+
+

@@ -2,16 +2,14 @@ SimpleLogin::Application.routes.draw do
   root 'sessions#new'
   get "/master" => "master#index"
   get "/camera" => "master#camera"
-  get "/pictures" => "master#pictures"
-  post "/pictures" => "master#create"
   get "/slideshows" => "master#slideshows"
   post "/slideshows" => "master#slideshowcreate"
   get "/layouts" => "master#layouts"
   get "/settings" => "master#settings"
 
   resources :users do 
-    resources :slideshows
-    
+    resources :slideshows 
+    resources :pictures, :only => [:new, :create, :index, :destroy, :show]
   end
   resources :sessions, :only => [:new, :create, :destroy] #only need 3 restful routes for Sessions
   get "/signup"  => 'users#new'
