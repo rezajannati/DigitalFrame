@@ -1,0 +1,20 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+	<div class='container'>
+		<div class ='topbar'><h1>Photo Frame</h1></div>
+		<div class ='row'>
+			<div class = 'col-xs-12'>
+				<% @slideshows.each do |s| %>
+					<h2><a href="/play/<%= s.id %>"><%= s.name %></a></h2>
+						<% s.pictures.each do |p| %>
+							<img src="<%= p.avatar %>" class='img-rounded' width='80px'>
+						<% end %>
+				<% end %>
+				<br><br>
+				<a class='btn btn-warning btn-lg btn-block' href="/users/<%= @user.id%>">Back</a>
+			</div>
+		</div>
+	</div>
+</body>

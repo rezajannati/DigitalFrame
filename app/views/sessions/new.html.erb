@@ -12,22 +12,22 @@
 				<% end %>
 				<br>
 				<div class = 'col-xs-12'>
-					<div class='container'>
 					<%= simple_form_for(:session, :url => sessions_path, html: { :class => 'form-horizontal'}, :defaults => { :input_html => { :class => "form-control" } }) do |f| %>
-						<div class='form-group'>
-							<%= f.input :email , required:false, :class => "form-control input-lg"%>
-						</div>
-						<div class='form-group'>
-							<%= f.input :password , required:false, :class => "form-control" %>
+						<div class='container'>
+							<div class='form-group'>
+								<%= f.input :email , required:false, :class => "form-control input-lg"%>
+							</div>
+							<div class='form-group'>
+								<%= f.input :password , required:false, :class => "form-control" %>
+							</div>
 						</div>
 						<div class='form-group'>
 							<%= f.button :submit , :Login, :class => 'btn btn-primary btn-lg btn-block'%>
 						</div>
 					<% end %>
-					</div>
 				</div>
-				<p>Not yet a registered user? 
-				<a class= 'btn btn-success btn-lg btn-block'href="/signup">Register</a></p>
+				<p>Not yet a registered user?</p>
+				<a class= 'btn btn-success btn-lg btn-block'href="/signup">Register</a>
 			</div>
 		</div>
 	</div>
