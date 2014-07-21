@@ -14,3 +14,20 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$('.add').click(function(e){
+		$('#images').append("<span class='btn btn-info btn-block btn-file'> " +
+							"<span class='file_desc'> Select your file!</span>" +
+    						"<input name='images[][avatar]' type='file'>" +
+						"</span>");
+		e.preventDefault();
+	});
+
+	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+		numFiles = input.get(0).files ? input.get(0).files.length : 1,
+		label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		$(this).siblings('.file_desc').text(label);
+	});
+})

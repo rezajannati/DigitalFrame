@@ -17,20 +17,17 @@
 	</style>
 </head>
 <body>
-	
 	<div class = 'container'>
 		<div class= 'topbar'>
-		<h4>
-			<i id = "banner"></i> Welcome, <%= @user.first_name.capitalize%>
-		</h4>
-	</div>
+			<h4><i id = "banner"></i> Welcome, <%= @user.first_name.capitalize%></h4>
+		</div>
 		<div class = 'row'>
 			<div class='col-xs-12'>
 				<h3>Choose Device Mode</h3>
 				<br>
 				<a class='btn btn-primary btn-lg btn-block fa fa-mobile fa-2x' href="/master"> Photo Manager</a>
 				<br><br>
-				<a class='btn btn-primary btn-lg btn-block fa fa-tablet fa-2x' href=""> Photo Frame</a>
+				<a class='btn btn-primary btn-lg btn-block fa fa-tablet fa-2x' href="/slave"> Photo Frame</a>
 				<br><br>
 				<a class='btn btn-danger btn-lg btn-block pull-right fa fa-power-off' href="/signout"> Log out</a>
 			</div>

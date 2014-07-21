@@ -1,12 +1,14 @@
 SimpleLogin::Application.routes.draw do
   root 'sessions#new'
+  get "/slave" => "slave#index"
+  get "/play" => "slave#play"
+  get "/play/:id" => "slave#play"
   get "/master" => "master#index"
   get "/camera" => "master#camera"
   get "/slideshows" => "master#slideshows"
   post "/slideshows" => "master#slideshowcreate"
   get "/layouts" => "master#layouts"
   get "/settings" => "master#settings"
-
   resources :users do 
     resources :slideshows 
     resources :pictures, :only => [:new, :create, :index, :destroy, :show]

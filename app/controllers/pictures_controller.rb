@@ -8,12 +8,15 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = User.find(params[:user_id]).pictures.new(picture_params)
-    if @picture.save
-      redirect_to user_pictures_path current_user
-    else
-      render :text => 'something went wrong!'
+    params[:images].each do |img|
+      User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])
     end
+    # @picture = User.find(params[:user_id]).pictures.new(picture_params)
+    # if @picture.save
+    redirect_to user_pictures_path current_user
+    # else
+    #   render :text => 'something went wrong!'
+    # end
   end
 
   def destroy
@@ -23,6 +26,6 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:avatar, :name)
+    params.permit(:avatar, :name, {:images => []})
   end
 end

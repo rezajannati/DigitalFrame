@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Slideshows#index</h1>
 
 <p>This is where all the user's slideshows will go!</p>
@@ -15,3 +16,19 @@
 <h3>See all your pictures</h3>
 <a href="<%= user_pictures_path current_user %>">GOO!</a>
 
+=======
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<div class='container'>
+	<div class ='topbar'><h1>Slideshows</h1></div>
+	<% @slideshows.each do |s| %>
+		<h2><%= s.name %> </h2>
+		<% s.pictures.each do |p| %>
+			<img src="<%= p.avatar %>" class='img-rounded' width='80px'>
+		<% end %><hr>
+	<% end %>
+	<a class='btn btn-primary btn-lg btn-block'href="<%= new_user_slideshow_path current_user %>">New Slideshow</a>
+	<a class='btn btn-warning btn-lg btn-block' href="/master">Back</a>
+</div>
+>>>>>>> a3e4758309fa54a0040be1ae6f935b7ffbb6030f
