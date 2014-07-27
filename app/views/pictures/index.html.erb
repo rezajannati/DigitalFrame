@@ -1,11 +1,11 @@
 <div class ='container'>
-	<h1>Here are your pictures, <%= current_user.first_name %></h1>
+	<div class='topbar'><h1>Pictures</h1></div>
 	<div>
 		<div>
 			<% @pictures.each do |p| %>
 				<div style='display: inline-block; vertical-align: top;'> 
 					<img src=" <%= p.avatar%> " alt="picture here" width='150px' height='150px'>
-					<h3><%= p.name %> <%= link_to  'delete', user_picture_path(current_user, p), :method => :delete %> </h3>
+						<br><%= p.name %> <%= link_to  'delete', user_picture_path(current_user, p), :method => :delete %>
 				</div>
 			<% end %>
 		</div>
