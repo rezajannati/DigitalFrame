@@ -1,21 +1,20 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
 <div class='container'>
-	<h1>Here are all of your slideshows, <%= current_user.first_name %> </h1>
+	<div class ='topbar'><h1>Slideshows</h1></div>
 	<% @slideshows.each do |s| %>
-		<h2><%= s.name %> </h2>
-		<a href="<%=edit_user_slideshow_path current_user, s.id %>">edit this slideshow</a>
+		<h2><%= s.name.capitalize %> </h2>
+		<a class='btn btn-primary' href="<%=edit_user_slideshow_path current_user, s.id %>">edit</a>
 		<% s.pictures.each do |p| %>
 			<img src="<%= p.avatar %>" class='img-rounded' width='80px'>
 		<% end %>
+	<hr>
 	<% end %>
 
-	<h3>Add a new slideshow</h3>
-	<a href="<%= new_user_slideshow_path current_user %>">GO!</a>
-	<h3>See all your pictures</h3>
-	<a href="<%= user_pictures_path current_user %>">GOO!</a>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	</head>
 
+	
+	<br><br>
 	<a class='btn btn-primary btn-lg btn-block'href="<%= new_user_slideshow_path current_user %>">New Slideshow</a>
 	<a class='btn btn-warning btn-lg btn-block' href="/master">Back</a>
 </div>

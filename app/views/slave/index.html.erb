@@ -7,15 +7,14 @@
 		<% @slideshows.each do |s| %>
 			<div class ='row film'>
 				<div class = 'col-xs-12'>
-						<h2><%= s.name %></h2>
-						<a href="/play/<%= s.id %>"><button><span class='glyphicon glyphicon-play'></span></button></a>
-						<% s.pictures.each do |p| %>
-							<img src="<%= p.avatar %>" class='img-rounded'>
-						<% end %>
+							<a class='btn btn-primary btn-block btn-lg' href="/play/<%= s.id %>">[<%= s.name.capitalize %>]<span class='glyphicon glyphicon-play'></span></a>
+							<!-- <% s.pictures.each do |p| %>
+								<img src="<%= p.avatar %>" class='img-rounded'>
+							<% end %> -->
 				</div> <!--end column -->
 			</div> <!--end row -->
-			<% end %>
-			<br><br>
-			<a class='btn btn-warning btn-lg btn-block' href="/users/<%= @user.id%>">Back</a>
+		<% end %>
+		<br><br>
+		<a class='btn btn-warning btn-lg btn-block' href="/users/<%= @user.id%>">Back</a>
 	</div>
 </body>
