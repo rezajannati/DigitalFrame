@@ -10,15 +10,22 @@ class SlideshowsController < ApplicationController
 
   def create
     if current_user.slideshows.create(slideshow_params)
-        flash[:notice] = "new slideshow successfully created"
+      flash[:notice] = "new slideshow successfully created"
 
-        redirect_to slideshows_path
-      else
-        render :text => "something went wrong :("
-      end
+      redirect_to slideshows_path
+    else
+      render :text => "something went wrong :("
+    end
   end
 
   def update
+    if current_user.slideshows.find(params[:id]).update(slideshow_params)
+      # flash[:notice] = "slideshow successfully updated"
+      render :text => "working"
+      # redirect_to slideshows_path
+    else
+      render :text => "something went wrong :("
+    end
   end
 
   def destroy
@@ -26,6 +33,7 @@ class SlideshowsController < ApplicationController
 
   def edit
     @slideshow = Slideshow.find(params[:id])
+    @pictures = current_user.pictures.all - @slideshow.pictures
   end
 
   def show

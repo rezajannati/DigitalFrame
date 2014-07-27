@@ -1,24 +1,33 @@
-<h1>EDIT THIS SLIDESHOW!</h1>
 <div class ='container'>
+	<h1>EDIT THIS SLIDESHOW!</h1>
 	<div class ='row'>
-			<div class = 'col-xs-12'>
-				<%= form_tag(url: "users/#{current_user.id}/slideshows/#{@slideshow.id}") do %>
-					<input type="hidden"name="_method"value="put">
-					<br>
-					<%= label_tag "picture[name]", "name" %>
-					<%= text_field_tag 'picture[name]' %><br>
-					<%= collection_check_boxes(:picture, :picture_ids, @slideshow.pictures, :id, :avatar)  do |b| %>
-						<label for="<%= b.object %>" >
-							<img src="<%= b.text %>" width='150px'>
-							<%= b.check_box %>
-						</label>
-					<% end %>
-					<%= submit_tag "Update Slideshow", :class => 'btn btn-primary btn-lg btn-block' %><br>
+		<div class = 'col-xs-6 well' id="inDiv">
+			<h2>In your slideshow</h2>
+			<%= form_tag("/users/#{current_user.id}/slideshows/#{@slideshow.id}", method: "patch", :id => 'updateForm') do %>
+				<br>
+				<%= label_tag "picture[name]", "name" %>
+				<%= text_field_tag 'picture[name]', @slideshow.name %>
+				<br><br>
+				<%= collection_check_boxes(:picture, :picture_ids, @slideshow.pictures, :id, :avatar)  do |b| %>
+				<div class="col-xs-6">
+					<label for="<%= b.object %>" >
+						<img src="<%= b.text %>" class='img-rounded inShow' width='100px' height='100px'>
+						<%= b.check_box :checked => true %>
+					</label>
+				</div>
 				<% end %>
-			
-			</div>
+			<% end %>
+		</div>
+		<div class='col-xs-6 well' id='outDiv'>
+			<h2>Not in your slideshow</h2>
+			<% @pictures.each do |p| %>
+				<img src="<%= p.avatar %>" class='img-rounded non-selected outShow' width='100px' height='100px'>
+			<% end %>
+		</div>
 	</div>
+	<button  id='update' class='btn btn-primary btn-lg btn-block' >Update slideshow!</button>
 	<a class='btn btn-warning btn-lg btn-block' href="/master">Back</a>
+
 </div>
 
 

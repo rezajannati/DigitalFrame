@@ -30,4 +30,8 @@ $(document).ready(function(){
 		label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
 		$(this).siblings('.file_desc').text(label);
 	});
+
+	$('#update').click(function(){
+		$('#updateForm').submit();
+	})
 })
