@@ -2,7 +2,8 @@
 <div class ='container'>
 	<div class ='row'>
 			<div class = 'col-xs-12'>
-				<%= form_for(user_slideshows_path current_user, @slideshow, method: "patch") do |f| %>
+				<%= form_tag(url: "users/#{current_user.id}/slideshows/#{@slideshow.id}") do %>
+					<input type="hidden"name="_method"value="put">
 					<br>
 					<%= label_tag "picture[name]", "name" %>
 					<%= text_field_tag 'picture[name]' %><br>
@@ -12,7 +13,7 @@
 							<%= b.check_box %>
 						</label>
 					<% end %>
-					<%= submit_tag "Make Slideshow", :class => 'btn btn-primary btn-lg btn-block' %><br>
+					<%= submit_tag "Update Slideshow", :class => 'btn btn-primary btn-lg btn-block' %><br>
 				<% end %>
 			
 			</div>

@@ -1,13 +1,11 @@
-<div class ='topbar'>
-	<h1>Here are your pictures, <%= current_user.first_name %></h1>
-</div>
 <div class ='container'>
+	<h1>Here are your pictures, <%= current_user.first_name %></h1>
 	<div>
 		<div>
 			<% @pictures.each do |p| %>
 				<div style='display: inline-block; vertical-align: top;'> 
 					<img src=" <%= p.avatar%> " alt="picture here" width='150px' height='150px'>
-					<h3><%= p.name %></h3>
+					<h3><%= p.name %> <%= link_to  'delete', user_picture_path(current_user, p), :method => :delete %> </h3>
 				</div>
 			<% end %>
 		</div>
@@ -24,7 +22,7 @@
 				     </div>
 				     <br>
 					<button class="btn btn-success btn-block add"> add another file </button><br>
-					<%= f.submit "Send to Photo Frame" , :class => 'btn btn-primary btn-block'%> <br>
+					<%= f.submit "Add to your collection!" , :class => 'btn btn-primary btn-block'%> <br>
 				<%end%>
 				<a class='btn btn-warning btn-block' href="/master">Back</a>
 			</div>

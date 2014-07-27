@@ -3,18 +3,19 @@
 </head>
 <body>
 	<div class='container'>
-		<div class ='topbar'><h1>Photo Frame</h1></div>
-		<div class ='row'>
-			<div class = 'col-xs-12'>
-				<% @slideshows.each do |s| %>
-					<h2><a href="/play/<%= s.id %>"><%= s.name %></a></h2>
+		<h1>Pick a slideshow to play!</h1>
+		<% @slideshows.each do |s| %>
+			<div class ='row film'>
+				<div class = 'col-xs-12'>
+						<h2><%= s.name %></h2>
+						<a href="/play/<%= s.id %>"><button><span class='glyphicon glyphicon-play'></span></button></a>
 						<% s.pictures.each do |p| %>
-							<img src="<%= p.avatar %>" class='img-rounded' width='80px'>
+							<img src="<%= p.avatar %>" class='img-rounded'>
 						<% end %>
-				<% end %>
-				<br><br>
-				<a class='btn btn-warning btn-lg btn-block' href="/users/<%= @user.id%>">Back</a>
-			</div>
-		</div>
+				</div> <!--end column -->
+			</div> <!--end row -->
+			<% end %>
+			<br><br>
+			<a class='btn btn-warning btn-lg btn-block' href="/users/<%= @user.id%>">Back</a>
 	</div>
 </body>

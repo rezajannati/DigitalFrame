@@ -11,15 +11,12 @@ class PicturesController < ApplicationController
     params[:images].each do |img|
       User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])
     end
-    # @picture = User.find(params[:user_id]).pictures.new(picture_params)
-    # if @picture.save
     redirect_to user_pictures_path current_user
-    # else
-    #   render :text => 'something went wrong!'
-    # end
   end
 
   def destroy
+    Picture.find(params[:id]).destroy()
+    redirect_to user_pictures_path current_user
   end
 
   def show

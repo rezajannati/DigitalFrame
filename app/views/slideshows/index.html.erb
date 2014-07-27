@@ -1,34 +1,21 @@
-<<<<<<< HEAD
-<h1>Slideshows#index</h1>
-
-<p>This is where all the user's slideshows will go!</p>
-
-<% @slideshows.each do |s| %>
-	<h2><%= s.name %> </h2>
-	<a href="<%=edit_user_slideshow_path current_user, s.id %>">edit this slideshow</a>
-	<% s.pictures.each do |p| %>
-		<img src="<%= p.avatar %>" class='img-rounded' width='80px'>
-	<% end %>
-<% end %>
-
-<h3>Add a new slideshow</h3>
-<a href="<%= new_user_slideshow_path current_user %>">GO!</a>
-<h3>See all your pictures</h3>
-<a href="<%= user_pictures_path current_user %>">GOO!</a>
-
-=======
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-</head>
 <div class='container'>
-	<div class ='topbar'><h1>Slideshows</h1></div>
+	<h1>Here are all of your slideshows, <%= current_user.first_name %> </h1>
 	<% @slideshows.each do |s| %>
 		<h2><%= s.name %> </h2>
+		<a href="<%=edit_user_slideshow_path current_user, s.id %>">edit this slideshow</a>
 		<% s.pictures.each do |p| %>
 			<img src="<%= p.avatar %>" class='img-rounded' width='80px'>
-		<% end %><hr>
+		<% end %>
 	<% end %>
+
+	<h3>Add a new slideshow</h3>
+	<a href="<%= new_user_slideshow_path current_user %>">GO!</a>
+	<h3>See all your pictures</h3>
+	<a href="<%= user_pictures_path current_user %>">GOO!</a>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	</head>
+
 	<a class='btn btn-primary btn-lg btn-block'href="<%= new_user_slideshow_path current_user %>">New Slideshow</a>
 	<a class='btn btn-warning btn-lg btn-block' href="/master">Back</a>
 </div>
->>>>>>> a3e4758309fa54a0040be1ae6f935b7ffbb6030f

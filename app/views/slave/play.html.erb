@@ -1,33 +1,66 @@
-<html>
-<head>
+
     <script>
       $(document).ready(function(){
-        $('.carousel').carousel();
+
+        $('.carousel').carousel({interval: 3000, pause: false});
+
+        $(document).dblclick(function(){
+            $('.carousel').carousel('pause');
+            $('#myModal').modal('show');
+        })
+
+        $('.close, .modal-footer button').click(function(){
+            $('.carousel').carousel('cycle')
+        })
+
       });
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-</head>
-<body>
-    <div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
-        
-        <div class="carousel-inner">
-            <div class="item active">class of active since it's the first item
-                <img src="http://placehold.it/1200x480" alt="" />
-            </div>
-        </div>
 
+    <!-- MODAL -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Options</h4>
+          </div>
+          <div class="modal-body">
+            <h1>This is where we will be able to edit the slideshow preferences</h1>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+            <a href='/slave'><button type='button' class='btn btn-warning'>Back</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END MODAL -->
+    <!-- ######carousel start##### -->
+    <div id="carousel-example-generic" class="carousel slide">
+    <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        </ol>
+
+    <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <% @slideshow.pictures.each do |s| %>
-                <div class="item"><!-- class of active since it's the first item -->
-                    <img src="<%= s.avatar %>" alt="pictures" />
-                    <a class="btn btn-primary btn-block" href="/slave">End Slideshow</a>
+            <div class="item active">
+                <img src="<%= @slideshow.pictures.first.avatar %>" alt="...">
+                <div class="carousel-caption">
+                ...
                 </div>
+            </div>
+            <% @slideshow.pictures.drop(1).each do |p| %>
+            <div class="item">
+                <img src="<%= p.avatar %>" alt="...">
+                <div class="carousel-caption">
+                ...
+                </div>
+            </div>
             <% end %>
-        </div><!-- /.carousel-inner -->
-        <!--  Next and Previous controls below
-        href values must reference the id for this carousel -->
-        <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
-    </div><!-- /.carousel -->
-</body>
-</html>
+        </div>
+    </div>
+    <!-- CAROUSEL END -->
+

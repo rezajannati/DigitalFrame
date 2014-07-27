@@ -7,7 +7,6 @@ class SlaveController < ApplicationController
   def play
   	@user = current_user
   	@slideshow = Slideshow.find(params[:id])
-
   end
 
 end
