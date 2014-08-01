@@ -20,9 +20,8 @@ class SlideshowsController < ApplicationController
 
   def update
     if current_user.slideshows.find(params[:id]).update(slideshow_params)
-      # flash[:notice] = "slideshow successfully updated"
-      render :text => "working"
-      # redirect_to slideshows_path
+      flash[:notice] = "slideshow successfully updated"
+      redirect_to user_slideshows_path current_user
     else
       render :text => "something went wrong :("
     end

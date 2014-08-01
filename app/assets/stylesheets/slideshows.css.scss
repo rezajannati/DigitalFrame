@@ -1,3 +1,25 @@
 // Place all the styles related to the slideshows controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#in img, #out img
+{
+	margin: 7px;
+}
+
+.swipe
+{
+	margin: 0px;
+	padding: 0px;
+	vertical-align: top;
+	display: inline-block;
+	width: 49%;
+	min-height: 500px;
+}
+
+#in
+{
+	border-right: 3px solid gray;
+}
+
