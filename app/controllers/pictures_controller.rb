@@ -8,10 +8,15 @@ class PicturesController < ApplicationController
   end
 
   def create
-    params[:images].each do |img|
-      User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])
+    if params[:images].nil? 
+      flash[:notice] = "Error: Please select a picture to upload!"
+      redirect_to user_pictures_path current_user
+    else
+      params[:images].each do |img|
+        User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])
+      end
+      redirect_to user_pictures_path current_user
     end
-    redirect_to user_pictures_path current_user
   end
 
   def destroy
