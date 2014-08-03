@@ -78472,3 +78472,213 @@ Processing by MasterController#index as HTML
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered master/index.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 33ms (Views: 13.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/slave" for 127.0.0.1 at 2014-08-03 14:58:24 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SlaveController#index as HTML
+  [1m[35mUser Load (2.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mSlideshow Load (0.2ms)[0m  [1mSELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35mPicture Load (0.2ms)[0m  SELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?  [["slideshow_id", 15]]
+  Rendered slave/index.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 215ms (Views: 166.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/master.css?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/pictures.css?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/slave.css?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/slideshows.css?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/master.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/pictures.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/slave.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/slideshows.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-08-03 14:58:25 -0700
+
+
+Started GET "/users/7" for 127.0.0.1 at 2014-08-03 14:58:30 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/play/15" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+Processing by SlaveController#play as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mSlideshow Load (0.1ms)[0m  [1mSELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."id" = ? LIMIT 1[0m  [["id", "15"]]
+  [1m[35mPicture Load (0.2ms)[0m  SELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ? ORDER BY "pictures"."id" ASC LIMIT 1  [["slideshow_id", 15]]
+  [1m[36mPicture Load (0.1ms)[0m  [1mSELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?[0m  [["slideshow_id", 15]]
+  Rendered slave/play.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/master.css?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/pictures.css?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/slave.css?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/slideshows.css?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/user.css?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/master.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/pictures.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/slave.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/slideshows.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/user.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/assets/application.js?body=1" for 10.0.1.61 at 2014-08-03 14:58:37 -0700
+
+
+Started GET "/slave" for 127.0.0.1 at 2014-08-03 15:03:47 -0700
+Processing by SlaveController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mSlideshow Load (0.1ms)[0m  [1mSELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35mPicture Load (0.1ms)[0m  SELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?  [["slideshow_id", 15]]
+  Rendered slave/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2014-08-03 15:03:48 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-08-03 15:03:50 -0700
+Processing by MasterController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered master/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2014-08-03 15:03:51 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/slave" for 127.0.0.1 at 2014-08-03 15:03:55 -0700
+Processing by SlaveController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mSlideshow Load (0.2ms)[0m  [1mSELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."user_id" = ?[0m  [["user_id", 7]]
+  [1m[35mPicture Load (0.1ms)[0m  SELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?  [["slideshow_id", 15]]
+  Rendered slave/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/play/15" for 127.0.0.1 at 2014-08-03 15:03:57 -0700
+Processing by SlaveController#play as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mSlideshow Load (0.1ms)[0m  SELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."id" = ? LIMIT 1  [["id", "15"]]
+  [1m[36mPicture Load (0.2ms)[0m  [1mSELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ? ORDER BY "pictures"."id" ASC LIMIT 1[0m  [["slideshow_id", 15]]
+  [1m[35mPicture Load (0.1ms)[0m  SELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?  [["slideshow_id", 15]]
+  Rendered slave/play.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2014-08-03 15:04:31 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "7"]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-08-03 15:04:36 -0700
+Processing by MasterController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered master/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.1ms)
