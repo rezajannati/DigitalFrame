@@ -5,12 +5,12 @@
 	<div class='container'>
 		<h1>Pick a slideshow to play!</h1>
 		<% @slideshows.each do |s| %>
-			<div class ='row film'>
+			<div class ='row'>
 				<div class = 'col-xs-12'>
-							<a class='btn btn-primary btn-block btn-lg' href="/play/<%= s.id %>">[<%= s.name.capitalize %>]<span class='glyphicon glyphicon-play'></span></a>
-							<!-- <% s.pictures.each do |p| %>
-								<img src="<%= p.avatar %>" class='img-rounded'>
-							<% end %> -->
+							<a class='btn btn-primary btn-block btn-lg' href="/play/<%= s.id %>"><%= s.name.capitalize %><span class='glyphicon glyphicon-play'></span></a>
+							<% s.pictures.each do |p| %>
+								<img src="<%= p.avatar %>" class='img-rounded' width='100px' height='100px'>
+							<% end %> 
 				</div> <!--end column -->
 			</div> <!--end row -->
 		<% end %>

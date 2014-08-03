@@ -1,11 +1,14 @@
 <div class='container'>
-	<div class ='topbar'><h1>Slideshows</h1></div>
+	<h1>Slideshows</h1>
 	<% if flash[:notice] %>
-		<%= flash[:notice] %>
+		<p class='bg-info text-info'><%= flash[:notice] %></p>
 	<% end %>
+	<a class='btn btn-success' href="/slave/all">Play all slides</a>
 	<% @slideshows.each do |s| %>
 		<h2><%= s.name.capitalize %> </h2>
-		<a class='btn btn-primary' href="<%=edit_user_slideshow_path current_user, s.id %>">edit</a>
+		<a class='btn btn-primary' href="<%= edit_user_slideshow_path current_user, s.id %>">edit</a>
+		<a class='btn btn-danger' data-method='delete' href="<%= user_slideshow_path current_user, s.id %>">delete</a>
+		<a class='btn btn-success' href="<%= play_path s.id %>">Play</a>
 		<% s.pictures.each do |p| %>
 			<img src="<%= p.avatar %>" class='img-rounded' width='100px' height='100px'>
 		<% end %>

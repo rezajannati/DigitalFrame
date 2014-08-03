@@ -1,10 +1,11 @@
 <div class ='container'>
-	<div class='topbar'><h1>Pictures</h1></div>
+	<h1>Here are your pictures, <%= current_user.first_name %></h1>
 	<div>
 		<div>
 			<% @pictures.each do |p| %>
 				<div style='display: inline-block; vertical-align: top;'> 
-					<img src=" <%= p.avatar%> " alt="picture here" width='150px' height='150px'>
+					<h2><%= p.name %></h2>
+					<img src=" <%= p.avatar%> " alt="picture here" class='img-rounded' width='100px' height='100px'>
 						<br><%= p.name %> <%= link_to  'delete', user_picture_path(current_user, p), :method => :delete %>
 				</div>
 			<% end %>
@@ -16,12 +17,13 @@
 				<%= simple_form_for([current_user, @picture], :html => {:multipart => true, :class => 'form-horizontal'}, :defaults => {:input_html => {:class => 'form-control'} }) do |f| %>
 					<div id="images">
 						<span class="btn btn-info btn-block btn-file">
-							<span class='file_desc'> Select your file!</span>
-    						<%= file_field_tag "images[][avatar]" %>
+							<span class='file_desc'> Select your picture to add!</span>
+    						<%# file_field_tag "images[][avatar]" %>
+    						<input type='file' multiple name='images[][avatar]'>
 						</span>
 				     </div>
 				     <br>
-					<button class="btn btn-success btn-block add"> add another file </button><br>
+					<!-- <button class="btn btn-success btn-block add"> add another picture </button><br> -->
 					<%= f.submit "Add to your collection!" , :class => 'btn btn-primary btn-block'%> <br>
 				<%end%>
 				<a class='btn btn-warning btn-block' href="/master">Back</a>

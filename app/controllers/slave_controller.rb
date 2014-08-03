@@ -9,4 +9,8 @@ class SlaveController < ApplicationController
   	@slideshow = Slideshow.find(params[:id])
   end
 
+  def all
+  	@pictures = current_user.pictures
+  end
+
 end
