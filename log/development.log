@@ -78058,3 +78058,417 @@ Processing by MasterController#index as HTML
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered master/index.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 26ms (Views: 10.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1/pictures" for 127.0.0.1 at 2014-07-28 12:07:55 -0700
+Processing by PicturesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /Users/Spike/Documents/PROJECTS/DigitalFrame/app/controllers/pictures_controller.rb:6)
+  [1m[36mPicture Load (0.3ms)[0m  [1mSELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered pictures/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 108ms (Views: 42.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-07-28 12:07:58 -0700
+Processing by MasterController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered master/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 45ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-07-28 12:08:03 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 64ms (Views: 19.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2014-07-28 12:08:03 -0700
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 24ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2014-07-28 12:08:03 -0700
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 36ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JnfBERvzCf6kyGiyzqejLx9uNOprtOeXt+3MY3pOVw0=", "session"=>{"email"=>"bob@dole.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'bob@dole.com' LIMIT 1
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 27ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 28ms (Views: 10.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/master.css?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/pictures.css?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/slave.css?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/slideshows.css?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/master.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/pictures.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/slave.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/slideshows.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-28 12:08:06 -0700
+
+
+Started GET "/master" for 127.0.0.1 at 2014-07-28 12:08:08 -0700
+Processing by MasterController#index as HTML
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered master/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 34ms (Views: 14.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1/pictures" for 127.0.0.1 at 2014-07-28 12:08:09 -0700
+Processing by PicturesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /Users/Spike/Documents/PROJECTS/DigitalFrame/app/controllers/pictures_controller.rb:6)
+  [1m[35mPicture Load (0.2ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?  [["user_id", 1]]
+  Rendered pictures/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 47ms (Views: 23.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/1/pictures" for 127.0.0.1 at 2014-07-28 12:08:11 -0700
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JnfBERvzCf6kyGiyzqejLx9uNOprtOeXt+3MY3pOVw0=", "user_id"=>"1"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `each' for nil:NilClass):
+  app/controllers/pictures_controller.rb:11:in `create'
+
+
+  Rendered /Users/Spike/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/Spike/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /Users/Spike/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/Spike/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.1ms)
+
+
+Started POST "/users/1/pictures" for 127.0.0.1 at 2014-07-28 12:08:15 -0700
+Processing by PicturesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JnfBERvzCf6kyGiyzqejLx9uNOprtOeXt+3MY3pOVw0=", "commit"=>"Add to your collection!", "user_id"=>"1"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `each' for nil:NilClass):
+  app/controllers/pictures_controller.rb:11:in `create'
+
+
+  Rendered /Users/Spike/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/Spike/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/Spike/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/Spike/.rvm/gems/ruby-2.1.0/gems/actionpack-4.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.6ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-07-28 12:08:26 -0700
+Processing by MasterController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered master/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 31ms (Views: 10.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1/slideshows" for 127.0.0.1 at 2014-07-28 12:08:28 -0700
+Processing by SlideshowsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /Users/Spike/Documents/PROJECTS/DigitalFrame/app/controllers/slideshows_controller.rb:3)
+  [1m[36mSlideshow Load (0.2ms)[0m  [1mSELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mPicture Load (0.1ms)[0m  SELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?  [["slideshow_id", 8]]
+  Rendered slideshows/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 36ms (Views: 13.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-07-28 12:08:31 -0700
+Processing by MasterController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered master/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 34ms (Views: 14.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-07-28 12:08:32 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 31ms (Views: 12.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/slave" for 127.0.0.1 at 2014-07-28 12:08:33 -0700
+Processing by SlaveController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSlideshow Load (0.2ms)[0m  SELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."user_id" = ?  [["user_id", 1]]
+  [1m[36mPicture Load (0.2ms)[0m  [1mSELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?[0m  [["slideshow_id", 8]]
+  Rendered slave/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 42ms (Views: 16.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-07-28 12:08:33 -0700
+
+
+Started GET "/play/8" for 127.0.0.1 at 2014-07-28 12:08:34 -0700
+Processing by SlaveController#play as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSlideshow Load (0.2ms)[0m  [1mSELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."id" = ? LIMIT 1[0m  [["id", "8"]]
+  [1m[35mPicture Load (0.2ms)[0m  SELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ? ORDER BY "pictures"."id" ASC LIMIT 1  [["slideshow_id", 8]]
+  [1m[36mPicture Load (0.1ms)[0m  [1mSELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?[0m  [["slideshow_id", 8]]
+  Rendered slave/play.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 38ms (Views: 14.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-07-28 12:08:45 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 32ms (Views: 12.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/slave" for 127.0.0.1 at 2014-07-28 12:08:46 -0700
+Processing by SlaveController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSlideshow Load (0.1ms)[0m  SELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."user_id" = ?  [["user_id", 1]]
+  [1m[36mPicture Load (0.1ms)[0m  [1mSELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?[0m  [["slideshow_id", 8]]
+  Rendered slave/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 35ms (Views: 13.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-07-28 12:08:47 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 30ms (Views: 11.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 11:00:11 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 11:00:16 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 11:00:26 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-29 11:00:59 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-30 12:44:17 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-01 10:35:24 -0700
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-01 18:20:11 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-01 18:21:41 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-01 18:22:11 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (59.5ms)
+Completed 200 OK in 231ms (Views: 202.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/master.css?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/pictures.css?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/slave.css?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/slideshows.css?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/user.css?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/master.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/pictures.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/slave.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/slideshows.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started GET "/assets/user.js?body=1" for 127.0.0.1 at 2014-08-01 18:22:12 -0700
+
+
+Started POST "/sessions" for 127.0.0.1 at 2014-08-01 18:22:24 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nqPbRxmxxJJG0rKkybxocd7oU2Um0FDIgXMm0IXzV74=", "session"=>{"email"=>"bob@dole.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'bob@dole.com' LIMIT 1
+Redirected to http://0.0.0.0:4000/users/1
+Completed 302 Found in 37ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-08-01 18:22:24 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 24ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-08-01 18:22:27 -0700
+Processing by MasterController#index as HTML
+  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered master/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 27ms (Views: 11.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-08-01 18:22:28 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 24ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/slave" for 127.0.0.1 at 2014-08-01 18:22:29 -0700
+Processing by SlaveController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSlideshow Load (0.8ms)[0m  [1mSELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mPicture Load (1.0ms)[0m  SELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?  [["slideshow_id", 8]]
+  Rendered slave/index.html.erb within layouts/application (46.4ms)
+Completed 200 OK in 94ms (Views: 53.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-08-01 18:22:29 -0700
+
+
+Started GET "/users/1" for 127.0.0.1 at 2014-08-01 18:22:31 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered users/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 22ms (Views: 9.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-08-01 18:33:35 -0700
+Processing by MasterController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered master/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 33ms (Views: 14.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/slideshows" for 127.0.0.1 at 2014-08-01 18:33:36 -0700
+Processing by SlideshowsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /Users/Spike/Documents/PROJECTS/DigitalFrame/app/controllers/slideshows_controller.rb:3)
+  [1m[35mSlideshow Load (0.2ms)[0m  SELECT "slideshows".* FROM "slideshows" WHERE "slideshows"."user_id" = ?  [["user_id", 1]]
+  [1m[36mPicture Load (0.3ms)[0m  [1mSELECT "pictures".* FROM "pictures" INNER JOIN "slideshowpictures" ON "pictures"."id" = "slideshowpictures"."picture_id" WHERE "slideshowpictures"."slideshow_id" = ?[0m  [["slideshow_id", 8]]
+  Rendered slideshows/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 64ms (Views: 15.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-08-01 18:33:38 -0700
+Processing by MasterController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered master/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 10.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/1/pictures" for 127.0.0.1 at 2014-08-01 18:36:31 -0700
+Processing by PicturesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from index at /Users/Spike/Documents/PROJECTS/DigitalFrame/app/controllers/pictures_controller.rb:6)
+  [1m[35mPicture Load (0.6ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."user_id" = ?  [["user_id", 1]]
+  Rendered pictures/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 66ms (Views: 20.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/master" for 127.0.0.1 at 2014-08-01 18:36:34 -0700
+Processing by MasterController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered master/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 13.0ms | ActiveRecord: 0.1ms)
