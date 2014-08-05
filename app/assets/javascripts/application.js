@@ -16,6 +16,7 @@
 
 
 $(document).ready(function(){
+	
 	$('.add').click(function(e){
 		$('#images').append("<span class='btn btn-info btn-block btn-file'> " +
 							"<span class='file_desc'> Select your file!</span>" +

@@ -12,7 +12,7 @@ class SlideshowsController < ApplicationController
     if current_user.slideshows.create(slideshow_params)
       flash[:notice] = "new slideshow successfully created"
 
-      redirect_to slideshows_path
+      redirect_to user_slideshows_path current_user
     else
       render :text => "something went wrong :("
     end
@@ -28,6 +28,10 @@ class SlideshowsController < ApplicationController
   end
 
   def destroy
+    Slideshow.find(params[:id]).destroy
+    flash[:notice] = 'Slideshow successfully deleted'
+    redirect_to user_slideshows_path current_user
+    else
   end
 
   def edit

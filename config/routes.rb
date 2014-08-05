@@ -1,9 +1,9 @@
 SimpleLogin::Application.routes.draw do
   root 'sessions#new'
   get "/slave" => "slave#index"
-  get "/play" => "slave#play"
-  get "/play/:id" => "slave#play"
+  get "/play/:id" => "slave#play", as: :play
   get "/master" => "master#index"
+  get '/slave/all' => 'slave#all'
   get "/camera" => "master#camera"
   get "/slideshows" => "master#slideshows"
   post "/slideshows" => "master#slideshowcreate"
