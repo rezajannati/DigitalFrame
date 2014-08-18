@@ -1,13 +1,25 @@
+<%= javascript_include_tag "delete_pics" %>
 <div class ='container'>
-	<h1>Here are your pictures, <%= current_user.first_name %></h1>
+	<div class='row'>
+		<div class='col-md-6'>
+			<h1 class style='margin-bottom: 15px;'>Here are your pictures, <%= current_user.first_name %></h1>
+		</div>
+		<div class='col-md-6'>
+			<button id='delete-btn' class ='btn btn-danger btn-lg' style='margin: 15px 0px 10px 0px; display: none'>delete pictures</button>
+		</div>
+	</div> <!--row -->
+	
 	<div>
 		<div>
 			<% @pictures.each do |p| %>
 				<div style='display: inline-block; vertical-align: top;'> 
 					<h2><%= p.name %></h2>
 					<img src=" <%= p.avatar%> " alt="picture here" class='img-rounded' width='100px' height='100px'>
-						<br><%= p.name %> <%= link_to  'delete', user_picture_path(current_user, p), :method => :delete %>
+						<br><%= p.name %>delete
+						<input type='checkbox' class='delete-checkbox' value='<%= p.id %>'>
 				</div>
+			<% end %>
+			<%= form_tag("/users/#{current_user.id}/pictures/destroy", method: "delete", :id => 'deletePicsForm') do %>
 			<% end %>
 		</div>
 	</div>

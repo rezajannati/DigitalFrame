@@ -15,7 +15,9 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    Picture.find(params[:id]).destroy()
+    params[:delete_ids].each do |id|
+      Picture.find(id).destroy
+    end
     redirect_to user_pictures_path current_user
   end
 

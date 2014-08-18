@@ -1,7 +1,19 @@
 
     <script>
       $(document).ready(function(){
- 
+        //full screen stuff begin
+        window.moveTo(0, 0);
+        if (document.all) {
+            top.window.resizeTo(screen.availWidth, screen.availHeight);
+        }
+
+        else if (document.layers || document.getElementById) {
+            if (top.window.outerHeight < screen.availHeight || top.window.outerWidth < screen.availWidth) {
+                top.window.outerHeight = screen.availHeight;
+                top.window.outerWidth = screen.availWidth;
+            }
+        }
+        //full screen stuff end
         $('.carousel').carousel({interval: 1000, pause: false});
 
         $(document).dblclick(function(){
@@ -10,7 +22,7 @@
         })
 
         $(document).on('click', '#close',  function(){
-            $('.carousel').carousel({interval: 3000})
+           $('.carousel').carousel('cycle');
         })
 
       });
@@ -39,12 +51,7 @@
     <!-- END MODAL -->
     <!-- ######carousel start##### -->
     <div id="carousel-example-generic" class="carousel slide">
-    <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        </ol>
-
+    
     <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
