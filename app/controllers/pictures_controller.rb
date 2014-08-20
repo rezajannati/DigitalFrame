@@ -8,10 +8,17 @@ class PicturesController < ApplicationController
   end
 
   def create
-    params[:images].each do |img|
-      User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])
+    #render :text => params.inspect
+    if !params[:images].nil? 
+      params[:images].each do |img|
+        User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])
+      end
+      flash[:message] = "Successfully added #{params[:images].length} photos!"
+      redirect_to user_pictures_path current_user
+    else
+      flash[:errors] = 'Please include at least one image'
+      redirect_to user_pictures_path current_user
     end
-    redirect_to user_pictures_path current_user
   end
 
   def destroy

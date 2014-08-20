@@ -8,7 +8,12 @@
 			<button id='delete-btn' class ='btn btn-danger btn-lg' style='margin: 15px 0px 10px 0px; display: none'>delete pictures</button>
 		</div>
 	</div> <!--row -->
-	
+	<% if flash[:errors] %>
+		<p class='bg-warning'><%= flash[:errors] %></p>
+	<% end %>
+	<% if flash[:message] %>
+		<p class='bg-success'><%= flash[:message] %></p>
+	<% end %>
 	<div>
 		<div>
 			<% @pictures.each do |p| %>

@@ -11,7 +11,6 @@ class SlideshowsController < ApplicationController
   def create
     if current_user.slideshows.create(slideshow_params)
       flash[:notice] = "new slideshow successfully created"
-
       redirect_to user_slideshows_path current_user
     else
       render :text => "something went wrong :("
