@@ -24,6 +24,7 @@ $(document).ready(function(){
 		})
 		
 		$('form').append("<input type='hidden' name='picture[name]' value='"+$('#name').val()+"'>");
+		$('form').append("<input type='hidden' name='picture[interval]' value='"+$('#interval').val()+"'>");
 		$('form').submit();
 	})
 

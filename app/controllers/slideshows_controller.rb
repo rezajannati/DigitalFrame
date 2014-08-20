@@ -45,7 +45,7 @@ class SlideshowsController < ApplicationController
 
   private 
   def slideshow_params
-    params.require(:picture).permit(:name, {:picture_ids => []})
+    params.require(:picture).permit(:name, {:picture_ids => []}, :interval)
   end
 
 end

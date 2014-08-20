@@ -1,8 +1,9 @@
 
     <script>
-      $(document).ready(function(){
+    $(document).ready(function(){
         //full screen stuff begin
         window.moveTo(0, 0);
+
         if (document.all) {
             top.window.resizeTo(screen.availWidth, screen.availHeight);
         }
@@ -14,7 +15,7 @@
             }
         }
         //full screen stuff end
-        $('.carousel').carousel({interval: 1000, pause: false});
+        $('.carousel').carousel({interval: <%= @slideshow.interval*1000 %>, pause: false});
 
         $(document).dblclick(function(){
             $('.carousel').carousel('pause');
@@ -24,10 +25,8 @@
         $(document).on('click', '#close',  function(){
            $('.carousel').carousel('cycle');
         })
-
-      });
+    });
     </script>
-
     <!-- MODAL -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">

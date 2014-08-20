@@ -3,11 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#in img, #out img
+#in img, #out img, img
 {
 	margin: 7px;
 }
 
+.z
+{
+	z-index: 5;
+}
 .swipe
 {
 	margin: 0px;
@@ -23,3 +27,12 @@
 	border-right: 3px solid gray;
 }
 
+#in_ss
+{
+	min-height: 114px;
+}
+
+#add_ss_btn
+{
+	margin-top: 15px;
+}
