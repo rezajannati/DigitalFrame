@@ -1,24 +1,31 @@
-	<div class ='container'>
-		<h1>Make a new slideshow!</h1>
-		<div class ='row'>
-			<div class = 'col-xs-12'>
-				<%= form_tag(user_slideshows_path current_user, method: "post") do %>
-					<br>
-					<%= label_tag "picture[name]", "name" %>
-					<%= text_field_tag 'picture[name]' %>
-					<br><br>
-					<%= collection_check_boxes(:picture, :picture_ids, @pictures, :id, :avatar)  do |b| %>
-					<div class="col-xs-6">
-						<label for="<%= b.object %>" >
-							<img src="<%= b.text %>" class='img-rounded' width='100px' height='100px'>
-							<%= b.check_box %>
-						</label>
-					</div>
-					<% end %>
-					<%= submit_tag "Make Slideshow", :class => 'btn btn-primary btn-lg btn-block' %><br>
-				<% end %>
-			</div>
+<%= javascript_include_tag "new_slideshow" %>
+<div class ='container'>
+	<div class='row'>
+		<div class='col-md-6'>
+			<h1>Make a new slideshow!</h1>
 		</div>
-		<a class='btn btn-warning btn-block btn-lg' href="<%= user_slideshows_path current_user %>"> Back</a>
+		<div class='col-md-6'>
+			<button id='new_ss_btn' class='btn btn-block btn-success'>Add slideshow!</button>
+		</div>
 	</div>
+	<div class='row'>
+		<div class='col-xs-12 bg-info' id='in_ss'></div>
+	</div>
+	<div class ='row'>
+		<div class = 'col-xs-12' id='out_ss'>
+			<h2>Select your pictures!</h2>
+			<%= form_tag("/users/#{current_user.id}/slideshows", :method => 'post', :id => 'new_ss_form' ) do %>
+				<%= label_tag "picture[name]", "name" %>
+				<%= text_field_tag 'picture[name]' %>
+				<%= label_tag "picture[interval]", "interval between slides (in seconds)" %>
+				<%= text_field_tag 'picture[interval]' %>
+			<% end %>
+			<br>
+			<% @pictures.each do |img| %>
+				<img src="<%= img.avatar %>" class='img-rounded' width='100px' height='100px' id='<%= img.id %>'>
+			<% end %>
+		</div> <!-- col xs-12 -->
+	</div> <!--row -->
+	<a class='btn btn-warning btn-block btn-lg' href="<%= user_slideshows_path current_user %>"> Back</a>
+</div>
 

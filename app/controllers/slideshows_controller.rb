@@ -11,7 +11,6 @@ class SlideshowsController < ApplicationController
   def create
     if current_user.slideshows.create(slideshow_params)
       flash[:notice] = "new slideshow successfully created"
-
       redirect_to user_slideshows_path current_user
     else
       render :text => "something went wrong :("
@@ -45,7 +44,7 @@ class SlideshowsController < ApplicationController
 
   private 
   def slideshow_params
-    params.require(:picture).permit(:name, {:picture_ids => []})
+    params.require(:picture).permit(:name, {:picture_ids => []}, :interval)
   end
 
 end

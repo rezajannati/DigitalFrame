@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706201748) do
+ActiveRecord::Schema.define(version: 20140820004755) do
 
   create_table "pictures", force: true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140706201748) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "interval",   default: 3
   end
 
   add_index "slideshows", ["user_id"], name: "index_slideshows_on_user_id"
