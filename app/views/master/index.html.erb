@@ -1,3 +1,4 @@
+<!-- master index view -->
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
@@ -20,13 +21,14 @@
 	<div class='container'>
 		<div class='row'>
 			<div class='col-xs-12 col-md-6'><br>
-				<a class='btn btn-primary btn-block btn-lg fa fa-picture-o fa-3x' href="<%= user_pictures_path current_user %>"> Photos</a>
+				<a class='btn btn-primary btn-block btn-lg fa fa-picture-o fa-3x ' href="<%= user_pictures_path current_user %>"> Photo Gallery</a>
 			</div>
 			<div class='col-xs-12 col-md-6'><br>
-				<a class='btn btn-primary btn-block btn-lg fa fa-play-circle-o fa-3x' href="<%= user_slideshows_path current_user %>"> Manage slideshows</a>
+				<a class='btn btn-primary btn-block btn-lg fa fa-play-circle-o fa-3x' href="<%= user_slideshows_path current_user %>"> Create Slideshows</a>
 			</div>
 		</div>
 		<div class='row'> 
+
 			<div class= 'col-xs-12 col-md-12'><br>
 				<a class='btn btn-primary btn-block btn-lg fa fa-sort fa-3x' href="/users/<%= @user.id%>"> Main Menu</a>
 			</div>

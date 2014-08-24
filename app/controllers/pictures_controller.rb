@@ -8,7 +8,6 @@ class PicturesController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
     if params[:images].nil? 
       flash[:notice] = "Error: Please select a picture to upload!"
       redirect_to user_pictures_path current_user
@@ -16,17 +15,7 @@ class PicturesController < ApplicationController
       params[:images].each do |img|
         User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])
       end
-=======
-    #render :text => params.inspect
-    if !params[:images].nil? 
-      params[:images].each do |img|
-        User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])
-      end
-      flash[:message] = "Successfully added #{params[:images].length} photos!"
-      redirect_to user_pictures_path current_user
-    else
-      flash[:errors] = 'Please include at least one image'
->>>>>>> 3416db429ecf3e8c9e6bc345fc6e870601931ab1
+
       redirect_to user_pictures_path current_user
     end
   end

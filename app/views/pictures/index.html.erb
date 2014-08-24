@@ -1,52 +1,102 @@
-<%= javascript_include_tag "delete_pics" %>
-<div class ='container'>
-	<div class='row'>
-		<div class='col-md-6'>
-			<h1 class style='margin-bottom: 15px;'>Here are your pictures, <%= current_user.first_name %></h1>
-		</div>
-		<div class='col-md-6'>
-			<button id='delete-btn' class ='btn btn-danger btn-lg' style='margin: 15px 0px 10px 0px; display: none'>delete pictures</button>
-		</div>
-	</div> <!--row -->
-	<% if flash[:errors] %>
-		<p class='bg-warning'><%= flash[:errors] %></p>
-	<% end %>
-	<% if flash[:message] %>
-		<p class='bg-success'><%= flash[:message] %></p>
-	<% end %>
-	<div>
-		<div>
-			<% if flash[:notice] %>
-				<p class="bg-danger"><%= flash[:notice] %></p>
-			<% end %>
-			<% @pictures.each do |p| %>
-				<div style='display: inline-block; vertical-align: top;'> 
-					<h2><%= p.name %></h2>
-					<img src=" <%= p.avatar%> " alt="picture here" class='img-rounded' width='100px' height='100px'>
-						<br><%= p.name %>delete
-						<input type='checkbox' class='delete-checkbox' value='<%= p.id %>'>
-				</div>
-			<% end %>
-			<%= form_tag("/users/#{current_user.id}/pictures/destroy", method: "delete", :id => 'deletePicsForm') do %>
-			<% end %>
-		</div>
-	</div>
-	<br><br>
-	<div class ='row'>
-			<div class = 'col-xs-12'>
-				<%= simple_form_for([current_user, @picture], :html => {:multipart => true, :class => 'form-horizontal'}, :defaults => {:input_html => {:class => 'form-control'} }) do |f| %>
-					<div id="images">
-						<span class="btn btn-info btn-block btn-file">
-							<span class='file_desc'> Select your pictures to add!</span>
-    						<%# file_field_tag "images[][avatar]" %>
-    						<input type='file' multiple name='images[][avatar]'>
-						</span>
-				     </div>
-				     <br>
-					<%= f.submit "Add to your collection!" , :class => 'btn btn-primary btn-block'%> <br>
-				<%end%>
-				<a class='btn btn-warning btn-block' href="/master">Back</a>
-			</div>
-	</div>
-</div>
+<html>
+<head>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
+</head>	
+<body>
+	<%= javascript_include_tag "delete_pics" %>
+
+	<header>
+		<div class="navbar navbar-inverse navbar-fixed-top" role "navigation">
+			<div class="container">
+				<div class="navbar-collapse collapse" id="footer-body">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="<%= new_user_slideshow_path current_user %>">New Slideshow</a>
+						</li>
+						<li><a href="/master">Back</a></li>
+						<!-- <li><a class="fa fa-plus" href=""></a></li> -->
+
+						<li>
+							<!-- Form for add picture - should be just the plus icon  -->
+							<%= simple_form_for([current_user, @picture], :html => {:multipart => true, :class => 'form-horizontal'}, :defaults => {:input_html => {:class => 'form-control'} }) do |f| %>
+
+								<div id="images">
+									<span class="fa fa-plus btn btn-default btn-file">
+										<span class='file_desc'></span>
+		    							<%# file_field_tag "images[][avatar]" %>
+		    							<input type='file' multiple name='images[][avatar]'>
+									</span>
+						    	</div>
+						</li>
+						<li> 
+								<%= f.submit "Submit" , :class => 'btn btn-default'%>
+							<%end%>
+						</li>
+					</ul>
+				</div>
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footer-body">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class ='container'>
+		<div class="head-space"></div>
+		<div class='row'>
+			<div class='col-md-6'>
+				<h1 class style='margin-bottom: 15px;'>Here are your pictures, <%= current_user.first_name %></h1>
+			</div>
+			<div class='col-md-6'>
+				<button id='delete-btn' class ='btn btn-danger btn-lg' style='margin: 15px 0px 10px 0px; display: none'>delete pictures</button>
+			</div>
+		</div> <!--row -->
+		<% if flash[:errors] %>
+			<p class='bg-warning'><%= flash[:errors] %></p>
+		<% end %>
+		<% if flash[:message] %>
+			<p class='bg-success'><%= flash[:message] %></p>
+		<% end %>
+		<div>
+			<div>
+				<% if flash[:notice] %>
+					<p class="bg-danger"><%= flash[:notice] %></p>
+				<% end %>
+				<% @pictures.each do |p| %>
+					<div style='display: inline-block; vertical-align: top;'> 
+						<h2><%= p.name %></h2>
+						<img src=" <%= p.avatar%> " alt="picture here" class='img-rounded' width='100px' height='100px'>
+							<br><%= p.name %>delete
+							<input type='checkbox' class='delete-checkbox' value='<%= p.id %>'>
+					</div>
+				<% end %>
+				<%= form_tag("/users/#{current_user.id}/pictures/destroy", method: "delete", :id => 'deletePicsForm') do %>
+				<% end %>
+			</div>
+		</div>
+		<br><br>
+		<!-- <div class ='row'>
+				<div class = 'col-xs-12'>
+					<%= simple_form_for([current_user, @picture], :html => {:multipart => true, :class => 'form-horizontal'}, :defaults => {:input_html => {:class => 'form-control'} }) do |f| %>
+						<div id="images">
+							<span class="btn btn-info btn-block btn-file">
+								<span class='file_desc'> Select your pictures to add!</span>
+	    						<%# file_field_tag "images[][avatar]" %>
+	    						<input type='file' multiple name='images[][avatar]'>
+							</span>
+					     </div>
+					     <br>
+						<%= f.submit "Add to your collection!" , :class => 'btn btn-primary btn-block'%> <br>
+					<%end%>
+					<a class='btn btn-warning btn-block' href="/master">Back</a>
+				</div>
+		</div> -->
+	</div>
+</body>
+</html>
