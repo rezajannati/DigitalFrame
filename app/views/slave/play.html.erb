@@ -22,6 +22,11 @@
             $('#myModal').modal('show');
         })
 
+        $('#invis').click(function(){
+            $('.carousel').carousel('pause');
+            $('#myModal').modal('show');
+        })
+
         $(document).on('click', '#close',  function(){
            $('.carousel').carousel('cycle');
         })
@@ -50,7 +55,8 @@
     <!-- END MODAL -->
     <!-- ######carousel start##### -->
     <div id="carousel-example-generic" class="carousel slide">
-    
+        <div id='invis'>
+        </div>
     <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
@@ -70,4 +76,20 @@
         </div>
     </div>
     <!-- CAROUSEL END -->
+    
+    <style type="text/css">
+        #invis 
+        {
+            width: 100px;
+            height: 100px;
+            z-index: 1000;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #carousel-example-generic
+        {
+            position: relative;
+        }
+    </style>
 

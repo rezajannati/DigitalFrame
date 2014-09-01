@@ -16,7 +16,8 @@
 
 
 $(document).ready(function(){
-	
+	$('#file_upload_submit').hide();
+
 	$('.add').click(function(e){
 		$('#images').append("<span class='btn btn-info btn-block btn-file'> " +
 							"<span class='file_desc'> Select your file!</span>" +
@@ -29,8 +30,13 @@ $(document).ready(function(){
 		var input = $(this);
 		var numFiles = input.get(0).files ? input.get(0).files.length : 1;
 		//label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-		var label = numFiles + " files selected!"
-		$(this).siblings('.file_desc').text(label);
+		var label = "Add selected files (" + numFiles + ")";
+		//old stuff
+		//$(this).siblings('.file_desc').text(label);
+
+		//new approach
+		$('#file_upload_submit').val(label).show();
+		$('#file_upload_btn').hide();
 	});
 
 	$('#update').click(function(){

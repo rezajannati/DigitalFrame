@@ -36,3 +36,30 @@
 {
 	margin-top: 15px;
 }
+
+.checked
+{
+	color: #00E600;
+}
+
+.img-box
+{
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+}
+
+.img-box span
+{
+	float: right;
+}
+
+.unselected
+{
+	color: white;
+}
+
+.selected
+{
+	color: #00FF00;
+}

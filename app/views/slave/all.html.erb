@@ -8,6 +8,11 @@
             $('#myModal').modal('show');
         })
 
+        $('#invis').click(function(){
+            $('.carousel').carousel('pause');
+            $('#myModal').modal('show');
+        })
+
         $('#close').click(function(){
             $('.carousel').carousel('cycle');
         })
@@ -51,7 +56,7 @@
     <!-- END MODAL -->
     <!-- ######carousel start##### -->
     <div id="reza" class="carousel slide">
-
+        <div id='invis'></div>
     <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
@@ -161,4 +166,20 @@
         //     support.className = 'bad'
         //     support.innerHTML = '<p>Your browser appears to <strong>not support</strong> fullscreen mode.</p>'
         // }
+
 </script>
+<style type="text/css">
+    #invis 
+    {
+        width: 100px;
+        height: 100px;
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #carousel-example-generic
+    {
+        position: relative;
+    }
+    </style>

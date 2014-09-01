@@ -2,17 +2,14 @@
 <div class ='container'>
 	<div class='row'>
 		<div class='col-md-6'>
-			<h1>Make a new slideshow!</h1>
+			<h1>Make a new slideshow.  Touch pictures to add</h1>
 		</div>
 		<div class='col-md-6'>
 			<button id='new_ss_btn' class='btn btn-block btn-success'>Add slideshow!</button>
 		</div>
 	</div>
-	<div class='row'>
-		<div class='col-xs-12 bg-info' id='in_ss'></div>
-	</div>
 	<div class ='row'>
-		<div class = 'col-xs-12' id='out_ss'>
+		<div class = 'col-xs-12' id='my_pictures'>
 			<h2>Select your pictures!</h2>
 			<%= form_tag("/users/#{current_user.id}/slideshows", :method => 'post', :id => 'new_ss_form' ) do %>
 				<%= label_tag "picture[name]", "name" %>
@@ -22,10 +19,15 @@
 			<% end %>
 			<br>
 			<% @pictures.each do |img| %>
-				<img src="<%= img.avatar %>" class='img-rounded' width='100px' height='100px' id='<%= img.id %>'>
+				<div class='img-box'>
+					<span class='glyphicon glyphicon-ok unselected'></span>
+					<img src="<%= img.avatar %>" class='img-rounded' width='100px' height='100px' id='<%= img.id %>'>
+				</div>
 			<% end %>
 		</div> <!-- col xs-12 -->
 	</div> <!--row -->
+	<br>
+	<br>
 	<a class='btn btn-warning btn-block btn-lg' href="<%= user_slideshows_path current_user %>"> Back</a>
 </div>
 
