@@ -1,6 +1,6 @@
-
-
 $(document).ready(function(){
+
+	alert('ballin!');
 
 	$('#photoDiv').on('click', 'img', function(){
 		if($(this).hasClass('inShow'))

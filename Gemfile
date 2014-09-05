@@ -4,9 +4,6 @@ gem 'carrierwave'
 
 gem 'bootstrap-sass'
 
-gem 'jquery-ui-rails'
-
-
 group :development, :test do
 	gem 'sqlite3'
 	gem 'capistrano', "~> 2.14.2"
