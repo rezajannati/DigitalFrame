@@ -73,27 +73,6 @@
 
 </head>
 <body>
-	<% if signed_in? %>
-	<div id='nav'>
-  		<div class='user-top-logout'>
-  			<button id='trash' class='btn btn-primary'><span class='glyphicon glyphicon-trash'></span></button>
-  			<a href="<%= signout_path %>">logout</a>
-  		</div>
-        <div id='message'>
-            <h2 class='text-center'>Select photos to delete and press trashcan icon</h2>
-        </div>
-        <div id='labelWrap'>
-            <label for='addPic'>
-            <div class='user-top-nav'>
-                    Upload Photos
-            </div>
-        </label>
-        </div>
-	</div>
-  <%= simple_form_for([current_user, @picture], :html => {:multipart => true, :class => 'form-horizontal'}) do |f| %>
-    <input id='addPic' type='file' name="images[][avatar]" multiple style='display: none'>   
-  <%end%>
-	<% end %>
 <%= yield %>
 
 </body>
