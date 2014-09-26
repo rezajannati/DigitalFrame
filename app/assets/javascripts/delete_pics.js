@@ -2,12 +2,12 @@ $(document).ready(function(){
 	$('.delete-checkbox').click(function(){
 		//if the button is hidden, show it:
 		if($('#delete-btn').css('display') == 'none'){
-			$('#delete-btn').show();
+			//$('#delete-btn').show();
 		}
 		//check if there are no more checked checkboxes
 		else if(!$('.delete-checkbox').is(':checked'))
 		{
-			$('#delete-btn').hide();
+			//$('#delete-btn').hide();
 		}	
 
 		var id = $(this).attr('value');

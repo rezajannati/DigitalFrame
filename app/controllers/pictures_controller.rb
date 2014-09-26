@@ -8,7 +8,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    #render :text => params.inspect
+    # render :text => params.inspect
     if !params[:images].nil? 
       params[:images].each do |img|
         User.find(params[:user_id]).pictures.create(:avatar => img[:avatar])

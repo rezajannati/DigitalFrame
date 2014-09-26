@@ -16,27 +16,57 @@
 
 
 $(document).ready(function(){
-	$('#file_upload_submit').hide();
+	var ready = false;
 
-	$('.add').click(function(e){
-		$('#images').append("<span class='btn btn-info btn-block btn-file'> " +
-							"<span class='file_desc'> Select your file!</span>" +
-    						"<input name='images[][avatar]' type='file'>" +
-						"</span>");
-		e.preventDefault();
-	});
-
-	$(document).on('change', '.btn-file :file', function() {
+	$(document).on('change', 'input:file', function() {
 		var input = $(this);
 		var numFiles = input.get(0).files ? input.get(0).files.length : 1;
-		//label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-		var label = "Add selected files (" + numFiles + ")";
-		//new approach
-		$('#file_upload_submit').val(label).show();
-		$('#file_upload_btn').hide();
+		$('.user-top-nav').text("Go! (upload "+ numFiles+" photos)");
+		$('label').attr('for', 'dude');
+		ready = true;
 	});
 
-	$('#update').click(function(){
-		$('#updateForm').submit();
+	$('.user-top-nav').click(function(){
+		if(ready)
+		{
+			$('#new_picture').submit();
+		}
+	})
+
+
+
+	$('#trash').click(function(){
+		
+			if($(this).hasClass('btn-danger'))
+			{
+				if($('.imgBox').hasClass('redMarked')) 
+				{
+					$('#deletePicsForm').submit();
+				}
+				else {
+					$('.imgBox').off('click');
+					$('#message h2').css('visibility', 'hidden')
+				}
+			}
+
+			else
+			{
+				$('#message h2').css('visibility', 'visible')
+				$('.imgBox').on('click', function(){
+					var id = $(this).attr('id');
+					var input_id = "input_" + id;
+					$(this).toggleClass('redMarked notMarked');
+
+					if($(this).hasClass('redMarked'))
+					{
+						$('#deletePicsForm').append("<input id='" +input_id+ "' type='hidden' name='delete_ids[]' value='"+id+"'>");
+					}
+					else
+					{
+						$('#'+input_id).remove();
+					}
+				})
+			}
+			$(this).toggleClass('btn-primary btn-danger');
 	})
 })

@@ -1,8 +1,7 @@
-<%= javascript_include_tag "delete_pics" %>
 <div class ='container'>
 	<div class='row'>
 		<div class='col-md-6'>
-			<h1 class style='margin-bottom: 15px;'>Here are your pictures, <%= current_user.first_name %></h1>
+			<h3 class style='margin-bottom: 15px;'>Here are your photos, <%= current_user.first_name %></h3>
 		</div>
 		<div class='col-md-6'>
 			<button id='delete-btn' class ='btn btn-danger btn-lg' style='margin: 15px 0px 10px 0px; display: none'>delete pictures</button>
@@ -17,11 +16,10 @@
 	<div>
 		<div>
 			<% @pictures.each do |p| %>
-				<div style='display: inline-block; vertical-align: top;'> 
-					<h2><%= p.name %></h2>
+				<div class='imgBox notMarked' id='<%= p.id %>'> 
 					<img src=" <%= p.avatar%> " alt="picture here" class='img-rounded' width='100px' height='100px'>
-						<br><%= p.name %>delete
-						<input type='checkbox' class='delete-checkbox' value='<%= p.id %>'>
+						<!-- <br><%= p.name %>delete -->
+						<!-- <input type='checkbox' class='delete-checkbox' value='<%= p.id %>'> -->
 				</div>
 			<% end %>
 			<%= form_tag("/users/#{current_user.id}/pictures/destroy", method: "delete", :id => 'deletePicsForm') do %>
@@ -29,21 +27,5 @@
 		</div>
 	</div>
 	<br><br>
-	<div class ='row'>
-			<div class = 'col-xs-12'>
-				<%= simple_form_for([current_user, @picture], :html => {:multipart => true, :class => 'form-horizontal'}, :defaults => {:input_html => {:class => 'form-control'} }) do |f| %>
-					<div id="images">
-						<span class="btn btn-info btn-block btn-file" id='file_upload_btn'>
-							<span class='file_desc'> Select your pictures to add!</span>
-    						<%# file_field_tag "images[][avatar]" %>
-    						<input type='file' multiple='multiple' name='images[][avatar]'>
-						</span>
-						<%= f.submit "add your files!", :class => "btn btn-info btn-block", :id =>'file_upload_submit' %>
-				     </div>
-				     <br>
-				<%end%>
-				<a class='btn btn-warning btn-block' href="<%=user_path current_user %>">Back</a>
-			</div>
-	</div>
 </div>
 

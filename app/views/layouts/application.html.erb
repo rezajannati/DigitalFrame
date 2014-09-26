@@ -8,9 +8,92 @@
   <%= javascript_include_tag params[:controller] if params[:controller] == 'slideshows' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style type="text/css">
+    #labelWrap
+    {
+      margin: 0px auto;
+      width: 70%;
+    }
+
+    #message h2
+    {
+        margin: 0px;
+        visibility: hidden;
+    }
+
+    #nav label
+    {
+        width: 100%;
+    }
+  	.user-top-nav 
+  	{
+  		padding: 4%;
+  		color: white;
+  		background-color: #3F4245;
+  		text-align: center;
+  		font-size: 2em;
+        border-radius: 5px;
+        cursor: pointer;
+  	}
+
+  	.user-top-logout a
+  	{
+  		float: right;
+  		margin: 20px;
+  	}
+
+  	.glyphicon-trash
+  	{
+  		font-size: 2em;
+      padding: 3px;
+  	}
+
+    #trash
+    {
+      margin: 20px 20px 20px 60px;
+    }
+
+    .redMarked
+    {
+        border: 2px solid red;
+    }
+
+    .notMarked
+    {
+        border: 2px solid white;
+    }
+
+    .imgBox
+    {
+        margin: 2px;
+        display: inline-block;
+        vertical-align: top;
+    }
+  </style>
+
 </head>
 <body>
-
+	<% if signed_in? %>
+	<div id='nav'>
+  		<div class='user-top-logout'>
+  			<button id='trash' class='btn btn-primary'><span class='glyphicon glyphicon-trash'></span></button>
+  			<a href="<%= signout_path %>">logout</a>
+  		</div>
+        <div id='message'>
+            <h2 class='text-center'>Select photos to delete and press trashcan icon</h2>
+        </div>
+        <div id='labelWrap'>
+            <label for='addPic'>
+            <div class='user-top-nav'>
+                    Upload Photos
+            </div>
+        </label>
+        </div>
+	</div>
+  <%= simple_form_for([current_user, @picture], :html => {:multipart => true, :class => 'form-horizontal'}) do |f| %>
+    <input id='addPic' type='file' name="images[][avatar]" multiple style='display: none'>   
+  <%end%>
+	<% end %>
 <%= yield %>
 
 </body>

@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to new_session_path
   	else
   		sign_in user #helper function
-  		redirect_to user
+  		redirect_to user_pictures_path user
   	end
 
   end
